@@ -91,6 +91,15 @@ namespace VRTK
             base.Follow();
         }
 
+        public void rotateMenu() {
+            this.followsRotation = true;
+            Invoke("stopMenuRotation", 0.2f);
+        }
+
+        private void stopMenuRotation() {
+            this.followsRotation = false;
+        }
+
         protected override void OnEnable()
         {
             base.OnEnable();
