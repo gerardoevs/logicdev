@@ -25,6 +25,7 @@
                 grabbingController.GetComponent<VRTK_InteractTouch>().ForceTouch(newArrow);
                 grabbingController.AttemptGrab();
                 spawnDelayTimer = Time.time + spawnDelay;
+                ItemsOnGroundArray.Instance.AddItemToArray(newArrow);
             }
         }
 
