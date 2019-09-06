@@ -28,6 +28,9 @@ public class TutorialManager : MonoBehaviour
     private bool thumbTouchTouched = false;
     private bool menuButtonPressed = false;
 
+    //Panel de imagen
+    public Transform imgPanel;
+
     //Prefabs
     public Transform parent;
     public Transform gripButtonPrefab;
@@ -43,7 +46,10 @@ public class TutorialManager : MonoBehaviour
         "Ahora sabes como agarrar objetos... ",
         "Puedes utilizar el boton 'Trigger' para poder seleccionar",
         "Pon tu dedo en el Joystick izquierdo para apuntar un laser guia",
-        "¡Bien! ahora selecciona los botones rojos!"
+        "¡Bien! ahora selecciona los botones rojos! Apuntar(Touchpad) y Seleccionar(Trigger)",
+        "Genial, ahora puedes seleccionar objetos con el puntero.",
+        "Utiliza el puntero del control derecho, este sirve para poder Teletransportarte por el mapa.",
+        "Apunta (Touchpad) y selecciona Seleccionar(Trigger) para Teletransportarte al lugar seleccionado."
     };
 
 
@@ -167,7 +173,19 @@ public class TutorialManager : MonoBehaviour
                     actionCompleted = true;
                     thumbTouchTouched = false;
                     instantiatedPanel = false;
+                    BotonesRojos.Instance.unHideButtons();
                 }
+                break;
+            case 5:
+                if (BotonesRojos.Instance.getBtnPressed() == 3)
+                {
+                    instatiatePanel(okSignalPrefab);
+                    actionCompleted = true;
+                    instantiatedPanel = false;
+                }
+                break;
+            case 6:
+                actionCompleted = true;
                 break;
         }
         return actionCompleted;
